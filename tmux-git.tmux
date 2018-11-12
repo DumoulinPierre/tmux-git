@@ -7,10 +7,12 @@ source "$CURRENT_DIR/scripts/helpers.sh"
 git_interpolation=(
 	"\#{git_bg_color}"
 	"\#{git_fg_color}"
+	"\#{git_test2}"
 )
 git_commands=(
 	"#($CURRENT_DIR/scripts/git_bg_color.sh)"
 	"#($CURRENT_DIR/scripts/git_fg_color.sh)"
+	"#($CURRENT_DIR/scripts/git_test2.sh)"
 )
 
 set_tmux_option() {
