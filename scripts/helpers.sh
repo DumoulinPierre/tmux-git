@@ -171,6 +171,6 @@ print_fg_color() {
   printf "$git_high_fg_color"
 }
 
-print_test2() {
-  pwd
+pane_pwd() {
+  tmux showenv -g TMUX_PWD_$(tmux display -p "#D" | tr -d %)  | sed 's/^.*=//'
 }

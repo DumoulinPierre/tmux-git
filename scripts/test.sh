@@ -181,7 +181,7 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     upstream='^'
   fi
 
-  printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" \
+  printf "%s-%s-%s-%s-%s-%s-%s-%s-%s-%s" \
     "${branch}${state}" \
     "$remote" \
     "$remote_url" \
