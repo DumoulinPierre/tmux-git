@@ -172,5 +172,5 @@ print_fg_color() {
 }
 
 print_test2() {
-  printf "hey"
+  pwd
 }
