@@ -181,23 +181,25 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     upstream='^'
   fi
 
-  if ["$clean"] ; then
-    clean_color="#[fg=green]"
+  if (($clean != 0)) ; then
+    clean_dir="#[fg=green]✔"
   else
-    clean_color="#[fg=red]"
+    clean_dir="#[fg=red]✖"
   fi
 
-  printf "%s_c=%s-%s-%s-%s-%s-%s-%s-%s-%s-%s" \
-    "$clean_color" \
-    "$clean" \
-    "${branch}${state}" \
-    "$remote" \
-    "$remote_url" \
-    "$upstream" \
-    $num_staged \
-    $num_conflicts \
-    $num_changed \
-    $num_untracked \
-    $num_stashed \
+  printf "%s | " "$clean_dir"
+
+  printf  "${branch}${state}"
+  printf  "$remote"
+  printf  "$remote_url"
+  printf  "$upstream"
+  printf  $num_staged
+  printf  "✖ %s" $num_conflicts
+  printf  " | "
+  printf  "✚ %s" $num_changed
+  printf  " | "
+  printf  "… %s" $num_untracked
+  printf  $num_stashed
 
   exit
+
