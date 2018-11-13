@@ -181,7 +181,15 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     upstream='^'
   fi
 
-  printf "%s-%s-%s-%s-%s-%s-%s-%s-%s-%s" \
+  if ["$clean"] ; then
+    clean_color="#[fg=green]"
+  else
+    clean_color="#[fg=red]"
+  fi
+
+  printf "%s_c=%s-%s-%s-%s-%s-%s-%s-%s-%s-%s" \
+    "$clean_color" \
+    "$clean" \
     "${branch}${state}" \
     "$remote" \
     "$remote_url" \
@@ -191,6 +199,5 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     $num_changed \
     $num_untracked \
     $num_stashed \
-    $clean
 
   exit
